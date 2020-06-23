@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 
+  m_Name: Enemy_idle
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -17,21 +17,45 @@ AnimationClip:
   m_PositionCurves: []
   m_ScaleCurves: []
   m_FloatCurves: []
-  m_PPtrCurves: []
+  m_PPtrCurves:
+  - curve:
+    - time: 0
+      value: {fileID: 21300000, guid: 6e5fd9c5bbaeb624ea82893e48b2a837, type: 3}
+    - time: 0.1
+      value: {fileID: 21300000, guid: fe45d184484cc054f8480b1423b9e9a6, type: 3}
+    - time: 0.26666668
+      value: {fileID: 21300000, guid: 51e7bccb48f0a6e45b68d1a060e70b7b, type: 3}
+    - time: 0.41666666
+      value: {fileID: 21300000, guid: d2de1d925e8b30140ba22afb91707680, type: 3}
+    attribute: m_Sprite
+    path: 
+    classID: 212
+    script: {fileID: 0}
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
-    genericBindings: []
-    pptrCurveMapping: []
+    genericBindings:
+    - serializedVersion: 2
+      path: 0
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+    pptrCurveMapping:
+    - {fileID: 21300000, guid: 6e5fd9c5bbaeb624ea82893e48b2a837, type: 3}
+    - {fileID: 21300000, guid: fe45d184484cc054f8480b1423b9e9a6, type: 3}
+    - {fileID: 21300000, guid: 51e7bccb48f0a6e45b68d1a060e70b7b, type: 3}
+    - {fileID: 21300000, guid: d2de1d925e8b30140ba22afb91707680, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1
+    m_StopTime: 0.43333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
