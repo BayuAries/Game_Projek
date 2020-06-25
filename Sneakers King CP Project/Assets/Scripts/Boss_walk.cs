@@ -7,6 +7,7 @@ public class Boss_walk : StateMachineBehaviour
 
     Transform player;
     Rigidbody2D rb;
+    Transform Bossrotation;
     float speed = 1f;
 
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -14,12 +15,14 @@ public class Boss_walk : StateMachineBehaviour
     {
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
         rb = GameObject.FindWithTag("Boss1").GetComponent<Rigidbody2D>();
+        Bossrotation = GameObject.FindWithTag("Boss1").GetComponent<Transform>();
         //animator.GetComponent<Rigidbody2D>();
     }
 
     //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+       
         Vector2 target = new Vector2(player.position.x, rb.position.y);
         Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
         rb.MovePosition(newPos);
