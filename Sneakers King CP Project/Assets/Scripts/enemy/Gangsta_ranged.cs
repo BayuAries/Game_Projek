@@ -4,18 +4,9 @@ using UnityEngine;
 
 public class Gangsta_ranged : Enemy
 {
-    void Start()
+    //untuk inisialisasi
+    public override void Init()
     {
-        attack();
-    }
-
-    public override void attack()
-    {
-        Debug.Log("ranged attack");
-        base.attack();
-    }
-    public override void Update()
-    {
-        Debug.Log("Ranged_updating");
+        base.Init();
     }
 }
