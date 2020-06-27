@@ -8,8 +8,8 @@ public class Boss_walk : StateMachineBehaviour
     Transform player;
     Rigidbody2D rb;
     Transform Bossrotation;
-    float speed = 1f;
-    public float attackRange = 1;
+    public float speed = 1f;
+    public float attackRange = 0.01f;
     bool boss1;
     
 
