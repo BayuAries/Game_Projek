@@ -11,6 +11,7 @@ public class test : MonoBehaviour
     bool facingRight = true;    //menghadap kanan
     float velX, speed = 3f;    //kecepatan jalan
     int health = 5;             //pengaturan jumlah darah
+    int currentHealth;
 
     bool isHurt, isDead;        //untuk triger
 
@@ -27,12 +28,20 @@ public class test : MonoBehaviour
     public GameObject sepatu;
     public Transform atackPoint;
 
+    public HealthBar healthBar;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        Darah.hitungDarah = health;
+        currentHealth = health;
+
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        healthBar.SetMaxHealth(health);
+        Darah.hitungDarah = currentHealth;
+
     }
 
     // Update is called once per frame
@@ -145,8 +154,9 @@ public class test : MonoBehaviour
     {
         if (col.gameObject.name.Equals("baja") || (col.tag == "sepatu"))
         {
-            health -= 1;
-            Darah.hitungDarah = health;
+            currentHealth -= 1;
+            Darah.hitungDarah = currentHealth;
+            healthBar.SetHealth(currentHealth);
         }
 
         if ((col.gameObject.name.Equals("baja") || (col.tag == "sepatu")) && health > 0)
@@ -154,7 +164,7 @@ public class test : MonoBehaviour
             anim.SetTrigger("isHurt");
             StartCoroutine("Hurt");
         }
-        if(health < 1)
+        if (currentHealth < 1)
         {
             jumpValue = 0;
             speed = 0;
