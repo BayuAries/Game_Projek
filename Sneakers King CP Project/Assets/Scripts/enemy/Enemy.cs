@@ -6,12 +6,14 @@ public abstract class Enemy : MonoBehaviour
 {
     public int health;
     public int speed;
+    [SerializeField]
+    protected Transform pointA, pointB;
 
     public virtual void attack()
     {
         Debug.Log("baseAttack called");
     }
 
-    public abstract void update();
+    public abstract void Update();
 
 }

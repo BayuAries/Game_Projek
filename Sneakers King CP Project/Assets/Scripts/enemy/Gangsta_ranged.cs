@@ -14,7 +14,7 @@ public class Gangsta_ranged : Enemy
         Debug.Log("ranged attack");
         base.attack();
     }
-    public override void update()
+    public override void Update()
     {
         Debug.Log("Ranged_updating");
     }
