@@ -10,7 +10,7 @@ public class Players : MonoBehaviour
     Animator anim;
     bool facingRight = true;    //menghadap kanan
     float velX, speed = 3f;    //kecepatan jalan
-    int health = 5;             //pengaturan jumlah darah
+    public int health = 5;             //pengaturan jumlah darah
     bool isHurt, isDead;        //untuk triger
 
     public float jumpValue;     //kekuatan lompat
@@ -23,6 +23,9 @@ public class Players : MonoBehaviour
     //objek dilempar dan titik lempar
     public GameObject sepatu;
     public Transform atackPoint;
+
+    public GameObject deathEffect;
+
 
     // Start is called before the first frame update
     void Start()
@@ -144,6 +147,33 @@ public class Players : MonoBehaviour
         }
     }
 
+    public void TakeDamage(int damage)
+	{
+        anim.SetTrigger("isHurt");
+        StartCoroutine("Hurt");
+		health -= damage;
+
+		Debug.Log(health);
+
+		// StartCoroutine("DamageAnimation");
+
+		if (health <= 0)
+		{
+			jumpValue = 0;
+            velX = 0;
+            isDead = true;
+            anim.SetTrigger("isDead");
+            StartCoroutine(wait());
+		}
+	}
+
+    void Die()
+	{
+		Instantiate(deathEffect, transform.position, Quaternion.identity);
+		Destroy(gameObject);
+	}
+
+
     IEnumerator Hurt()
     {
         isHurt = true;
@@ -157,5 +187,12 @@ public class Players : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
 
         isHurt = false;
+    }
+
+    IEnumerator wait()
+    {
+        yield return new WaitForSeconds (1);
+        Die();
+
     }
 }
