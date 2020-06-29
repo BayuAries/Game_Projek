@@ -156,13 +156,14 @@ public class test : MonoBehaviour
         {
             currentHealth -= 1;
             Darah.hitungDarah = currentHealth;
-            healthBar.SetHealth(currentHealth);
+            Bar();
         }
 
         if ((col.gameObject.name.Equals("baja") || (col.tag == "sepatu")) && health > 0)
         {
             anim.SetTrigger("isHurt");
             StartCoroutine("Hurt");
+            
         }
         if (currentHealth < 1)
         {
@@ -187,5 +188,10 @@ public class test : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         isHurt = false;
+    }
+
+    void Bar()
+    {
+        healthBar.SetHealth(currentHealth);
     }
 }
