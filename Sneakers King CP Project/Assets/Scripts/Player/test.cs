@@ -71,6 +71,8 @@ public class test : MonoBehaviour
 
         AnimationState();       //pengatur animasi gerakan
 
+        Bar();
+
         //pindah di atas testnya
         // if (!isDead)    //jika tidak mati maka bisa gerak
         //velX = speed;  
@@ -155,11 +157,9 @@ public class test : MonoBehaviour
         if (col.gameObject.name.Equals("baja") || (col.tag == "sepatu"))
         {
             currentHealth -= 1;
-            Darah.hitungDarah = currentHealth;
-            Bar();
         }
 
-        if ((col.gameObject.name.Equals("baja") || (col.tag == "sepatu")) && health > 0)
+        if ((col.gameObject.name.Equals("baja") || (col.tag == "sepatu")) && currentHealth > 0)
         {
             anim.SetTrigger("isHurt");
             StartCoroutine("Hurt");

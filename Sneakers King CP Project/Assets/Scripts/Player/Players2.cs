@@ -11,6 +11,7 @@ public class Players2 : MonoBehaviour
     bool facingRight = true;    //menghadap kanan
     float velX, speed = 3f;    //kecepatan jalan
     int health = 5;             //pengaturan jumlah darah
+    int currentHealth;
 
     bool isHurt, isDead;        //untuk triger
 
@@ -27,12 +28,16 @@ public class Players2 : MonoBehaviour
     public GameObject sepatu;
     public Transform atackPoint;
 
+    public HealthBar2 healthBar2;
+
     // Start is called before the first frame update
     void Start()
     {
+        currentHealth = health;
         DarahP2.hitungDarah = health;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        healthBar2.SetMaxHealth2(health);
     }
 
     // Update is called once per frame
@@ -61,6 +66,8 @@ public class Players2 : MonoBehaviour
         }
 
         AnimationState();       //pengatur animasi gerakan
+
+        Bar();
 
         //pindah di atas testnya
         // if (!isDead)    //jika tidak mati maka bisa gerak
@@ -145,17 +152,17 @@ public class Players2 : MonoBehaviour
     {
         if (col.gameObject.name.Equals("baja") || (col.tag == "sepatu"))
         {
-            health -= 1;
-            DarahP2.hitungDarah = health;
+            currentHealth -= 1;
+            DarahP2.hitungDarah = currentHealth;
 
         }
 
-        if ((col.gameObject.name.Equals("baja") || (col.tag == "sepatu")) && health > 0)
+        if ((col.gameObject.name.Equals("baja") || (col.tag == "sepatu")) && currentHealth > 0)
         {
             anim.SetTrigger("isHurt");
             StartCoroutine("Hurt");
         }
-        if(health < 1)
+        if(currentHealth < 1)
         {
             jumpValue = 0;
             speed = 0;
@@ -178,5 +185,10 @@ public class Players2 : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         isHurt = false;
+    }
+
+    void Bar()
+    {
+        healthBar2.SetHealth2(currentHealth);
     }
 }
