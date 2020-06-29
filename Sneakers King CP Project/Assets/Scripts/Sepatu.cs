@@ -5,6 +5,7 @@ using UnityEngine;
 public class Sepatu : MonoBehaviour
 {
     public float sepatuSpeed;
+    public int damage;
     Rigidbody2D rb;
     public GameObject sepatuEffect;
 
@@ -23,6 +24,11 @@ public class Sepatu : MonoBehaviour
     void OnTriggerEnter2D (Collider2D col)
     {
         
+        BossHealth enemy = col.GetComponent<BossHealth>();
+		if (enemy != null)
+		{
+			enemy.TakeDamage(damage);
+		}
 
         Instantiate(sepatuEffect, transform.position, transform.rotation);
 

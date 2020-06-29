@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sepatuSpeed: 10
+  damage: 10
   sepatuEffect: {fileID: 5145518725232680817, guid: 7e1a493cec97c9748a77a61c0534f044,
     type: 3}
 --- !u!58 &748841050911456905
