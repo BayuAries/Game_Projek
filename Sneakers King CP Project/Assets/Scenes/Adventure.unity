@@ -26256,6 +26256,8 @@ MonoBehaviour:
   speed: 1
   pointA: {fileID: 2110705772}
   pointB: {fileID: 2009612554}
+  deathEffect: {fileID: 0}
+  sepatu: {fileID: 0}
 --- !u!4 &1137460415
 Transform:
   m_ObjectHideFlags: 0
@@ -26432,10 +26434,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1530c2fd477bd742b1243c0027d1182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 5
   speed: 2
   pointA: {fileID: 2087012679}
   pointB: {fileID: 2067559362}
+  deathEffect: {fileID: 0}
+  sepatu: {fileID: 0}
 --- !u!61 &1397176287
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26446,7 +26450,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.038061142, y: 0.0026388168}

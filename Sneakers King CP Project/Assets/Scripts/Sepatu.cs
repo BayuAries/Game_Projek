@@ -30,6 +30,8 @@ public class Sepatu : MonoBehaviour
 			enemy.TakeDamage(damage);
 		}
 
+        
+
         Instantiate(sepatuEffect, transform.position, transform.rotation);
 
         Destroy(gameObject);

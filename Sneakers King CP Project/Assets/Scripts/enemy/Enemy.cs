@@ -13,12 +13,15 @@ public abstract class Enemy : MonoBehaviour
     protected Vector3 currentTarget;
     protected Animator anim;
     protected SpriteRenderer sprite;
+    public GameObject deathEffect;
+    public GameObject sepatu;
+    protected bool isHit = false;
 
     public virtual void Init()
     {
         anim = GetComponentInChildren<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
-
+        
     }
     private void Start()
     {
@@ -31,7 +34,12 @@ public abstract class Enemy : MonoBehaviour
         {
             return;
         }
-        Movement();
+        Movement();     
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("hit " + other.name);
     }
 
     public virtual void Movement()
@@ -57,10 +65,12 @@ public abstract class Enemy : MonoBehaviour
             anim.SetTrigger("idle");
 
         }
-
-        transform.position = Vector3.MoveTowards(transform.position, currentTarget, speed * Time.deltaTime);
+        if (isHit == false)
+        {
+            
+            transform.position = Vector3.MoveTowards(transform.position, currentTarget, speed * Time.deltaTime);
+        }
+        
     }
-
-    
 
 }
