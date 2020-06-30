@@ -26400,6 +26400,7 @@ GameObject:
   - component: {fileID: 1397176285}
   - component: {fileID: 1397176286}
   - component: {fileID: 1397176287}
+  - component: {fileID: 1397176288}
   m_Layer: 0
   m_Name: Gangsta_Melee
   m_TagString: Untagged
@@ -26466,6 +26467,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6391945, y: 1.7993412}
   m_EdgeRadius: 0
+--- !u!114 &1397176288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397176284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47667279e384c1e49baccdaee78f8bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1755093451 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1172597361615030, guid: 2e158dd1922dd2f429687179bedb7503,

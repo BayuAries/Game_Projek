@@ -9,7 +9,7 @@ public abstract class Enemy : MonoBehaviour
     protected float speed;
     [SerializeField]
     protected Transform pointA, pointB;
-
+    
     protected Vector3 currentTarget;
     protected Animator anim;
     protected SpriteRenderer sprite;
@@ -21,7 +21,7 @@ public abstract class Enemy : MonoBehaviour
     {
         anim = GetComponentInChildren<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
-        
+        sepatu = GameObject.FindWithTag("sepatu");
     }
     private void Start()
     {
@@ -34,12 +34,7 @@ public abstract class Enemy : MonoBehaviour
         {
             return;
         }
-        Movement();     
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log("hit " + other.name);
+        Movement();       
     }
 
     public virtual void Movement()
@@ -73,4 +68,5 @@ public abstract class Enemy : MonoBehaviour
         
     }
 
+    
 }
