@@ -480,6 +480,8 @@ MonoBehaviour:
   deathEffect: {fileID: 5145518725232680817, guid: 7e1a493cec97c9748a77a61c0534f044,
     type: 3}
   isInvulnerable: 0
+  _effectAnimation: {fileID: 0}
+  _effectAnimation2: {fileID: 0}
 --- !u!114 &695127823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3130,7 +3132,7 @@ Transform:
   m_GameObject: {fileID: 1527020313}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.01, y: 0.46, z: 0}
-  m_LocalScale: {x: 0.12753867, y: 0.12753867, z: 0.12753867}
+  m_LocalScale: {x: 0.12753867, y: 0.12753867, z: 0}
   m_Children: []
   m_Father: {fileID: 695127817}
   m_RootOrder: 0
@@ -3142,7 +3144,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527020313}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -3174,7 +3176,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 6d2aa458e2cd77542bc6fc7dadae0442, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 690c98ad8974da74eaab47ed388fea75, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3686,7 +3688,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793899234}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -3718,7 +3720,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: f1cd77a7e4d885f44989060fc29d64d8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aae1e88328d2f144ebaf939b36f78e88, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
