@@ -34,9 +34,10 @@ public class Players2 : MonoBehaviour
     void Start()
     {
         currentHealth = health;
-        DarahP2.hitungDarah = health;
+
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
         healthBar2.SetMaxHealth2(health);
     }
 
@@ -153,8 +154,6 @@ public class Players2 : MonoBehaviour
         if (col.gameObject.name.Equals("baja") || (col.tag == "sepatu"))
         {
             currentHealth -= 1;
-            DarahP2.hitungDarah = currentHealth;
-
         }
 
         if ((col.gameObject.name.Equals("baja") || (col.tag == "sepatu")) && currentHealth > 0)

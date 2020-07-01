@@ -40,7 +40,6 @@ public class test : MonoBehaviour
         anim = GetComponent<Animator>();
 
         healthBar.SetMaxHealth(health);
-        Darah.hitungDarah = currentHealth;
 
     }
 
