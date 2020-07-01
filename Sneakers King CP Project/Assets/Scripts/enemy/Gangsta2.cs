@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gangsta_Melee : MonoBehaviour
+public class Gangsta2 : MonoBehaviour
 {
-    public int health= 5;
+    public int health = 5;
     [SerializeField]
     protected float speed;
     [SerializeField]
@@ -75,12 +75,7 @@ public class Gangsta_Melee : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("hit " + other.name);
-        if (other.gameObject.name.Equals("sepatu"))
-        {
-            health -= 1;
-            Debug.Log("Health" + health);
-        }
-        else if (other == other.gameObject.name.Equals("player"))
+        if (other)
         {
             health -= 1;
             Debug.Log("Health" + health);

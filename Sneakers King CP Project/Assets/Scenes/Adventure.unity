@@ -26224,8 +26224,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1137460415}
   - component: {fileID: 1137460414}
+  - component: {fileID: 1137460416}
   m_Layer: 0
-  m_Name: Gangsta_Ranged
+  m_Name: Gangsta2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26243,7 +26244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ecc79992b67d50448dbc583c3e9c29f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 20
   speed: 1
   pointA: {fileID: 2110705772}
   pointB: {fileID: 2009612554}
@@ -26264,6 +26265,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1137460416
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137460413}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.019918442}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.52194977, y: 1.7967463}
+  m_EdgeRadius: 0
 --- !u!1001 &1178662237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26391,9 +26418,8 @@ GameObject:
   - component: {fileID: 1397176285}
   - component: {fileID: 1397176286}
   - component: {fileID: 1397176287}
-  - component: {fileID: 1397176288}
   m_Layer: 0
-  m_Name: Gangsta_Melee
+  m_Name: Gangsta1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26426,12 +26452,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1530c2fd477bd742b1243c0027d1182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackDamage: 1
   health: 5
-  speed: 2
+  speed: 2.5
   pointA: {fileID: 2087012679}
   pointB: {fileID: 2067559362}
   deathEffect: {fileID: 0}
   sepatu: {fileID: 0}
+  gangsta1: {fileID: 0}
+  attackOffset: {x: 0, y: 0, z: 0}
+  attackRange: 0.75
+  attackMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!61 &1397176287
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26458,18 +26491,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6391945, y: 1.7993412}
   m_EdgeRadius: 0
---- !u!114 &1397176288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1397176284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47667279e384c1e49baccdaee78f8bb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1755093451 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1172597361615030, guid: 2e158dd1922dd2f429687179bedb7503,
@@ -26931,7 +26952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d27db7f4e2420584ab4c15ac3cd5339b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 288
   jumpValue: 450
   leftbutton: 97
   rightbutton: 100
@@ -27065,8 +27086,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974328849}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 31.98, y: -11.14, z: 0}
-  m_LocalScale: {x: 1.7850175, y: 1.9664215, z: 0.8062409}
+  m_LocalPosition: {x: 24.56, y: 1.85, z: 0}
+  m_LocalScale: {x: 2.5, y: 3, z: 0}
   m_Children:
   - {fileID: 923511865}
   m_Father: {fileID: 0}
