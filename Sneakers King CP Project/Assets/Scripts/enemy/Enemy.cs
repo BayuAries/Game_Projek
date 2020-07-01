@@ -67,6 +67,20 @@ public abstract class Enemy : MonoBehaviour
         }
         
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("hit " + other.name);
+        if (other == other.gameObject.name.Equals("sepatu"))
+        {
+            health -= 1;
+            Debug.Log("Health" + health);
+        }
+        if (other == other.gameObject.name.Equals("player"))
+        {
+            health -= 1;
+            Debug.Log("Health" + health);
+        }
+    }
 
-    
+
 }
