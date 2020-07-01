@@ -156,7 +156,7 @@ public class Players2 : MonoBehaviour
             currentHealth -= 1;
         }
 
-        if ((col.gameObject.name.Equals("baja") || (col.tag == "sepatu")) && currentHealth > 0)
+        if ((col.gameObject.tag.Equals("Enemy") || (col.tag == "sepatu")) && currentHealth > 0)
         {
             anim.SetTrigger("isHurt");
             StartCoroutine("Hurt");
@@ -167,7 +167,7 @@ public class Players2 : MonoBehaviour
             speed = 0;
             isDead = true;
             anim.SetTrigger("isDead");
-            FindObjectOfType<GameManager>().Win1();
+            //FindObjectOfType<GameManager>().Win1();
         }
     }
 
