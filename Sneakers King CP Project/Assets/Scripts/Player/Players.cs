@@ -11,65 +11,90 @@ public class Players : MonoBehaviour
     bool facingRight = true;    //menghadap kanan
     float velX, speed = 3f;    //kecepatan jalan
     public int health = 5;             //pengaturan jumlah darah
+    int currentHealth;
+
     bool isHurt, isDead;        //untuk triger
 
     public float jumpValue;     //kekuatan lompat
+
     //buton
     public KeyCode leftbutton;        
     public KeyCode rightbutton;
     public KeyCode jump;
     public KeyCode LeftShift;
     public KeyCode trowShoes;
+
     //objek dilempar dan titik lempar
     public GameObject sepatu;
     public Transform atackPoint;
 
     public GameObject deathEffect;
 
+    public HealthBar healthBar;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        currentHealth = health;
+
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        healthBar.SetMaxHealth(health);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(LeftShift))       //lari dengan shift
-            speed = 7f;
-        else
-            speed = 3f;
-        
+        if (!isDead)    //jika tidak mati maka bisa gerak
+            if (Input.GetKey(LeftShift))       //lari dengan shift
+                speed = 7f;
+            else
+                speed = 3f;
+
         //fungsi jump
-        if (Input.GetKeyDown(jump) && rb.velocity.y == 0)      
+        if (Input.GetKeyDown(jump) && rb.velocity.y == 0)
             rb.AddForce(Vector2.up * jumpValue);
 
-        //melempar sepatu
-        if (Input.GetKeyDown(trowShoes))
-        {
-            //melempar clone sepatu dan arah lempar
-            GameObject cloneSepatu = (GameObject)Instantiate(sepatu, atackPoint.position, atackPoint.rotation);
-            cloneSepatu.transform.localScale = transform.localScale ;
+        if (!isDead)
+            //melempar sepatu
+            if (Input.GetKeyDown(trowShoes))
+            {
+                //melempar clone sepatu dan arah lempar
+                GameObject cloneSepatu = (GameObject)Instantiate(sepatu, atackPoint.position, atackPoint.rotation);
+                cloneSepatu.transform.localScale = transform.localScale;
 
-            //animasi melempar (attack)
-            anim.SetTrigger("isAttack");
-            
-        }
+                //animasi melempar (attack)
+                anim.SetTrigger("isAttack");
+            }
 
         AnimationState();       //pengatur animasi gerakan
 
-        if (!isDead)    //jika tidak mati maka bisa gerak
+        Bar();
 
-        velX = Input.GetAxisRaw("Horizontal") * speed;  
+        //pindah di atas testnya
+        // if (!isDead)    //jika tidak mati maka bisa gerak
+        //velX = speed;   
     }
 
     void FixedUpdate()
     {
         if (!isHurt)    //jika tidak sakit
-
-        rb.velocity = new Vector2(velX, rb.velocity.y);     //pindah posisi (bergerak)
+                        //jalan
+            if (Input.GetKey(leftbutton))
+            {
+                rb.velocity = new Vector2(-speed, rb.velocity.y);
+            }
+            else if (Input.GetKey(rightbutton))
+            {
+                rb.velocity = new Vector2(speed, rb.velocity.y);
+            }//stop
+            else
+            {
+                rb.velocity = new Vector2(0, rb.velocity.y);
+            }
+        // rb.velocity = new Vector2(velX, rb.velocity.y);     //pindah posisi (bergerak)
     }
 
     void LateUpdate()
@@ -81,17 +106,18 @@ public class Players : MonoBehaviour
     void CheckWhereToFace()
     {
         Vector3 localScale = transform.localScale;
-        if (velX > 0)
+        if (rb.velocity.x > 0)
         {
             facingRight = true;
-        }else if (velX < 0)
+        }
+        else if (rb.velocity.x < 0)
         {
             facingRight = false;
         }
         if (((facingRight) && (localScale.x < 0)) || (!facingRight) && (localScale.x > 0))
         {
             localScale.x *= -1;
-           
+
         }
 
         transform.localScale = localScale;
@@ -100,7 +126,7 @@ public class Players : MonoBehaviour
     //pengecek animasi gerakan
     void AnimationState()
     {
-        if (velX == 0)
+        if (rb.velocity.x == 0)
         {
             anim.SetBool("isWalking", false);
             anim.SetBool("isRunning", false);
@@ -110,11 +136,11 @@ public class Players : MonoBehaviour
             anim.SetBool("isJumping", false);
             anim.SetBool("isFalling", false);
         }
-        if (Mathf.Abs(velX) == 3 && rb.velocity.y == 0)
+        if (Mathf.Abs(rb.velocity.x) == 3 && rb.velocity.y == 0)
             anim.SetBool("isWalking", true);
-        if (Mathf.Abs(velX) == 7 && rb.velocity.y == 0)
+        if (Mathf.Abs(rb.velocity.x) == 7 && rb.velocity.y == 0)
             anim.SetBool("isRunning", true);
-        else 
+        else
             anim.SetBool("isRunning", false);
 
         if (rb.velocity.y > 0)
@@ -129,16 +155,17 @@ public class Players : MonoBehaviour
 
     void OnTriggerEnter2D (Collider2D col)
     {
-        if ((col.tag == "sepatu") || (col.tag == "sepatu"))
+        if ((col.tag == "Enemy") || (col.tag == "sepatu"))
         {
-            health -= 1;
+            currentHealth -= 1;
         }
 
-        if (((col.tag == "sepatu") || (col.tag == "sepatu")) && health > 0)
+        if (((col.tag == "Enemy") || (col.tag == "sepatu")) && currentHealth > 0)
         {
             anim.SetTrigger("isHurt");
             StartCoroutine("Hurt");
-        }else
+        }
+        if (currentHealth < 1)
         {
             jumpValue = 0;
             velX = 0;
@@ -151,13 +178,14 @@ public class Players : MonoBehaviour
 	{
         anim.SetTrigger("isHurt");
         StartCoroutine("Hurt");
-		health -= damage;
+        currentHealth -= damage;
+        currentHealth -= damage;
 
-		Debug.Log(health);
+		Debug.Log(currentHealth);
 
 		// StartCoroutine("DamageAnimation");
 
-		if (health <= 0)
+		if (currentHealth <= 0)
 		{
 			jumpValue = 0;
             velX = 0;
@@ -194,5 +222,10 @@ public class Players : MonoBehaviour
         yield return new WaitForSeconds (1);
         Die();
 
+    }
+
+    void Bar()
+    {
+        healthBar.SetHealth(currentHealth);
     }
 }
