@@ -30,6 +30,12 @@ public class Sepatu : MonoBehaviour
 			enemy.TakeDamage(damage);
 		}
 
+        Gangsta1 gangsta1 = col.GetComponent<Gangsta1>();
+		if (gangsta1 != null)
+		{
+			gangsta1.TakeDamage();
+		}
+
         
 
         Instantiate(sepatuEffect, transform.position, transform.rotation);

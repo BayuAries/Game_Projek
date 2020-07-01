@@ -132,15 +132,20 @@ public class Gangsta1 : MonoBehaviour
         }
 
     }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log("hit " + other.name);
-        if (other)
+
+    public void TakeDamage()
+	{
+        if(health>0)
         {
-            health -= 1;
-            Debug.Log("Health" + health);
+            health-=1;
+
+            Debug.Log(health);
         }
-    }
+
+		// StartCoroutine("DamageAnimation");
+
+
+	}
     public void KillChecker()
     {
         if (health < 1)
