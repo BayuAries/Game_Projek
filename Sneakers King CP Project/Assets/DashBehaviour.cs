@@ -21,6 +21,7 @@ public class DashBehaviour : StateMachineBehaviour
     Animator dasheffect;
     Animator dasheffect2;
     Animator Aura;
+    Animator camAnim;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -34,6 +35,7 @@ public class DashBehaviour : StateMachineBehaviour
         dasheffect = GameObject.FindWithTag("Boss2").transform.GetChild(0).GetComponent<Animator>();
         dasheffect2 = GameObject.FindWithTag("Boss2").transform.GetChild(1).GetComponent<Animator>();
         Aura = GameObject.FindWithTag("Boss2").transform.GetChild(2).GetComponent<Animator>();
+        camAnim = GameObject.FindWithTag("MainCamera").GetComponent<Animator>();
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -49,6 +51,7 @@ public class DashBehaviour : StateMachineBehaviour
             dasheffect.SetTrigger("Dash");
             dasheffect2.SetTrigger("Dash");
             Aura.SetBool("ON", false);
+            camAnim.SetTrigger("Shake");
         }
         else if (rb.position.x == pointB.position.x)
         {
@@ -59,6 +62,7 @@ public class DashBehaviour : StateMachineBehaviour
             dasheffect.SetTrigger("Dash");
             dasheffect2.SetTrigger("Dash");
             Aura.SetBool("ON", false);
+            camAnim.SetTrigger("Shake");
         }
 
         Debug.Log(currentTarget);
