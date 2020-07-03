@@ -9,6 +9,10 @@ TagManager:
   - sepatu
   - Boss1
   - Enemy
+  - Boss
+  - Boss2
+  - PointA
+  - PointB
   layers:
   - Default
   - TransparentFX
