@@ -10,7 +10,7 @@ public class End : MonoBehaviour
         if (col.gameObject.name.Equals("Player"))
         {
             print("Naik Level");
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(3);
         }
     }
 }

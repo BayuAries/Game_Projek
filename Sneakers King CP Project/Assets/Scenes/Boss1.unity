@@ -3462,7 +3462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d27db7f4e2420584ab4c15ac3cd5339b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 500
   jumpValue: 450
   leftbutton: 97
   rightbutton: 100
