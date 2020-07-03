@@ -10,7 +10,7 @@ public class Players2 : MonoBehaviour
     Animator anim;
     bool facingRight = true;    //menghadap kanan
     float velX, speed = 3f;    //kecepatan jalan
-    int health = 5;             //pengaturan jumlah darah
+    int health = 50;             //pengaturan jumlah darah
     int currentHealth;
 
     bool isHurt, isDead;        //untuk triger
@@ -166,8 +166,8 @@ public class Players2 : MonoBehaviour
             jumpValue = 0;
             speed = 0;
             isDead = true;
-            anim.SetTrigger("isDead");
-            FindObjectOfType<GameManager>().Win1();
+            //anim.SetTrigger("isDead");
+            //FindObjectOfType<GameManager>().Win1();
         }
     }
 
