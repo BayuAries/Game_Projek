@@ -135,7 +135,7 @@ public class Gangsta3 : MonoBehaviour
         }
 
     }
-
+    
     public void TakeDamage()
     {
         if (health > 0)
