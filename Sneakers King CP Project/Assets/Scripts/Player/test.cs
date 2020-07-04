@@ -170,7 +170,7 @@ public class test : MonoBehaviour
             speed = 0;
             isDead = true;
             anim.SetTrigger("isDead");
-            FindObjectOfType<GameManager>().Win2();
+            //FindObjectOfType<GameManager>().Win2();
         }
     }
 

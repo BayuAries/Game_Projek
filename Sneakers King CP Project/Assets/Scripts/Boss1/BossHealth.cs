@@ -41,6 +41,7 @@ public class BossHealth : MonoBehaviour
 	{
 		Instantiate(deathEffect, transform.position, Quaternion.identity);
 		Destroy(gameObject);
+		FindObjectOfType<NextLevel>().nextLevel();
 	}
 
 }

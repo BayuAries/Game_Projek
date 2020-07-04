@@ -208,9 +208,9 @@ public class Players : MonoBehaviour
         rb.velocity = Vector2.zero;
 
         if (facingRight)
-            rb.AddForce(new Vector2(-100f, 100f));
+            rb.AddForce(new Vector2(10f, 100f));
         else
-            rb.AddForce(new Vector2(100f, 100f));
+            rb.AddForce(new Vector2(-10f, 100f));
 
         yield return new WaitForSeconds(0.3f);
 

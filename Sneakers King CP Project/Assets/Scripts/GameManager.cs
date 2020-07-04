@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public GameObject panelPause;
     public GameObject p1win;
     public GameObject p2win;
+    public Animator transition;
+    public float transitionTime = 1f;
 
     public void PauseControl()
     {
@@ -33,9 +35,10 @@ public class GameManager : MonoBehaviour
 
     public void MainMenu()
     {
-        Application.LoadLevel(0);
+        //Application.LoadLevel(0);
         Time.timeScale = 1;
         panelPause.SetActive(false);
+        StartCoroutine(LoadLevel(0));
     }
 
     public void Win1()
@@ -46,5 +49,14 @@ public class GameManager : MonoBehaviour
     public void Win2()
     {
         p2win.SetActive(true);
+    }
+
+    IEnumerator LoadLevel(int LevelIndex)
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        SceneManager.LoadScene(LevelIndex);
     }
 }
