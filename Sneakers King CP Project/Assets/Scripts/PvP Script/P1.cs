@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Author : Kelompok CP Project
-
-public class Players2 : MonoBehaviour
+public class P1 : MonoBehaviour
 {
     Rigidbody2D rb;
     Animator anim;
     bool facingRight = true;    //menghadap kanan
     float velX, speed = 3f;    //kecepatan jalan
-    int health = 50;             //pengaturan jumlah darah
+    int health = 20;             //pengaturan jumlah darah
     int currentHealth;
 
     bool isHurt, isDead;        //untuk triger
@@ -18,7 +16,7 @@ public class Players2 : MonoBehaviour
     public float jumpValue;     //kekuatan lompat
 
     //input gerakan
-    public KeyCode leftbutton;        
+    public KeyCode leftbutton;
     public KeyCode rightbutton;
     public KeyCode jump;
     public KeyCode LeftShift;
@@ -28,7 +26,8 @@ public class Players2 : MonoBehaviour
     public GameObject sepatu;
     public Transform atackPoint;
 
-    public HealthBar2 healthBar2;
+    public HealthBar healthBar;
+
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +37,8 @@ public class Players2 : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
-        healthBar2.SetMaxHealth2(health);
+        healthBar.SetMaxHealth(health);
+
     }
 
     // Update is called once per frame
@@ -51,20 +51,20 @@ public class Players2 : MonoBehaviour
                 speed = 3f;
 
         //fungsi jump
-        if (Input.GetKeyDown(jump) && rb.velocity.y == 0)      
+        if (Input.GetKeyDown(jump) && rb.velocity.y == 0)
             rb.AddForce(Vector2.up * jumpValue);
 
         if (!isDead)
-        //melempar sepatu
-        if (Input.GetKeyDown(trowShoes))
-        {
-            //melempar clone sepatu dan arah lempar
-            GameObject cloneSepatu = (GameObject)Instantiate(sepatu, atackPoint.position, atackPoint.rotation);
-            cloneSepatu.transform.localScale = transform.localScale ;
+            //melempar sepatu
+            if (Input.GetKeyDown(trowShoes))
+            {
+                //melempar clone sepatu dan arah lempar
+                GameObject cloneSepatu = (GameObject)Instantiate(sepatu, atackPoint.position, atackPoint.rotation);
+                cloneSepatu.transform.localScale = transform.localScale;
 
-            //animasi melempar (attack)
-            anim.SetTrigger("isAttack");  
-        }
+                //animasi melempar (attack)
+                anim.SetTrigger("isAttack");
+            }
 
         AnimationState();       //pengatur animasi gerakan
 
@@ -78,19 +78,19 @@ public class Players2 : MonoBehaviour
     void FixedUpdate()
     {
         if (!isHurt)    //jika tidak sakit
-        //jalan
-        if (Input.GetKey(leftbutton))
-        {
-            rb.velocity = new Vector2(-speed, rb.velocity.y);
-        }
-        else if (Input.GetKey(rightbutton))
-        {
-            rb.velocity = new Vector2(speed, rb.velocity.y);
-        }//stop
-        else
-        {
-            rb.velocity = new Vector2(0, rb.velocity.y);
-        }
+                        //jalan
+            if (Input.GetKey(leftbutton))
+            {
+                rb.velocity = new Vector2(-speed, rb.velocity.y);
+            }
+            else if (Input.GetKey(rightbutton))
+            {
+                rb.velocity = new Vector2(speed, rb.velocity.y);
+            }//stop
+            else
+            {
+                rb.velocity = new Vector2(0, rb.velocity.y);
+            }
         // rb.velocity = new Vector2(velX, rb.velocity.y);     //pindah posisi (bergerak)
     }
 
@@ -106,14 +106,15 @@ public class Players2 : MonoBehaviour
         if (rb.velocity.x > 0)
         {
             facingRight = true;
-        }else if (rb.velocity.x < 0)
+        }
+        else if (rb.velocity.x < 0)
         {
             facingRight = false;
         }
         if (((facingRight) && (localScale.x < 0)) || (!facingRight) && (localScale.x > 0))
         {
             localScale.x *= -1;
-           
+
         }
 
         transform.localScale = localScale;
@@ -136,7 +137,7 @@ public class Players2 : MonoBehaviour
             anim.SetBool("isWalking", true);
         if (Mathf.Abs(rb.velocity.x) == 7 && rb.velocity.y == 0)
             anim.SetBool("isRunning", true);
-        else 
+        else
             anim.SetBool("isRunning", false);
 
         if (rb.velocity.y > 0)
@@ -149,25 +150,26 @@ public class Players2 : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D (Collider2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
-        if ((col.tag == "Enemy") || (col.tag == "sepatu"))
+        if (col.gameObject.name.Equals("baja") || (col.tag == "sepatu"))
         {
             currentHealth -= 1;
         }
 
-        if (((col.tag == "Enemy") || (col.tag == "sepatu"))  && currentHealth > 0)
+        if ((col.gameObject.name.Equals("baja") || (col.tag == "sepatu")) && currentHealth > 0)
         {
             anim.SetTrigger("isHurt");
             StartCoroutine("Hurt");
+
         }
-        if(currentHealth < 1)
+        if (currentHealth < 1)
         {
             jumpValue = 0;
             speed = 0;
             isDead = true;
             anim.SetTrigger("isDead");
-            //FindObjectOfType<GameManager>().Win1();
+            FindObjectOfType<GameManager>().Win2();
         }
     }
 
@@ -177,9 +179,9 @@ public class Players2 : MonoBehaviour
         rb.velocity = Vector2.zero;
 
         if (facingRight)
-            rb.AddForce(new Vector2(-100f, 100f));
+            rb.AddForce(new Vector2(10f, 100f));
         else
-            rb.AddForce(new Vector2(100f, 100f));
+            rb.AddForce(new Vector2(-10f, 100f));
 
         yield return new WaitForSeconds(0.5f);
 
@@ -188,6 +190,6 @@ public class Players2 : MonoBehaviour
 
     void Bar()
     {
-        healthBar2.SetHealth2(currentHealth);
+        healthBar.SetHealth(currentHealth);
     }
 }
