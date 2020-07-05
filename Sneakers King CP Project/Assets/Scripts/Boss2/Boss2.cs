@@ -40,7 +40,7 @@ public class Boss2 : MonoBehaviour
             if (timeBtwDamage <= 0)
             {
                 camAnim.SetTrigger("shake");
-                other.GetComponent<PlayerAdventure>().health -= damage;
+                //other.GetComponent<PlayerAdventure>().health -= damage;
             }
         }
     }

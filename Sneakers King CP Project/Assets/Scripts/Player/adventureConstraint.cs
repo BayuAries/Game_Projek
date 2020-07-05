@@ -2,22 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camera1 : MonoBehaviour
+public class adventureConstraint : MonoBehaviour
 {
-    Transform camPos;
     Transform playerPos;
-    public Vector3 offset;
     // Start is called before the first frame update
     void Start()
     {
-        camPos = GetComponent<Transform>();
         playerPos = GameObject.FindWithTag("Player").GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(playerPos.position.x + offset.x, playerPos.position.y + offset.y, offset.z); // Camera follows the player with specified offset position
-
+        if (playerPos.position.x < -18.35f)
+        {
+            playerPos.transform.position = new Vector3(-18.35f,playerPos.position.y,playerPos.position.z);
+        }
     }
 }
