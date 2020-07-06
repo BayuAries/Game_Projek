@@ -23,6 +23,7 @@ public class PlayerAdventure : MonoBehaviour
     public HealthBar healthBar;
     public Transform ShootPoint;
     public GameObject projectiles;
+    Animator camAnim;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +31,7 @@ public class PlayerAdventure : MonoBehaviour
         anim = GetComponent<Animator>();
         _playersprite = GetComponentInChildren<SpriteRenderer>();
         healthBar.SetMaxHealth(_health);
+        camAnim = GameObject.FindWithTag("MainCamera").GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -106,6 +108,7 @@ public class PlayerAdventure : MonoBehaviour
             _health -= 2;
             Debug.Log(_health);
             _rigid.velocity = new Vector2(_rigid.velocity.x + 3, _rigid.velocity.y + 3f);
+            camAnim.SetTrigger("Shake");
         }
     }
     public void OnCollisionExit2D(Collision2D collision)

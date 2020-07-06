@@ -135,7 +135,7 @@ public class Gangsta3 : MonoBehaviour
 
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(currentTarget.x, transform.position.y, transform.position.z), speed * Time.deltaTime);
         }
-
+        
     }
 
     //public void TakeDamage()
@@ -174,16 +174,9 @@ public class Gangsta3 : MonoBehaviour
             }
             anim.SetTrigger("Hitted");
         }
-        if (other.CompareTag("Player"))
+        else if (other.CompareTag("Player"))
         {
-            if (distance < 0)
-            {
-                transform.position = new Vector2(transform.position.x + 0.5f, transform.position.y + 0.1f);
-            }
-            else if (distance > 0)
-            {
-                transform.position = new Vector2(transform.position.x - 0.5f, transform.position.y + 0.1f);
-            }
+            anim.SetTrigger("idle");
             
         }
     }
