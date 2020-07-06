@@ -19,7 +19,10 @@ public class PlayerAdventure : MonoBehaviour
     public KeyCode LeftShift;
     private Animator anim;
     private SpriteRenderer _playersprite;
+
     public KeyCode energyShoot;
+    public KeyCode punch;
+
     public HealthBar healthBar;
     public Transform ShootPoint;
     public GameObject projectiles;
@@ -40,7 +43,7 @@ public class PlayerAdventure : MonoBehaviour
         Movement();
 
         //if lefklik atak
-        if (Input.GetMouseButtonDown(0) && _grounded == true)
+        if (Input.GetKeyDown(punch) && _grounded == true)
         {
             anim.SetTrigger("punch");
         }

@@ -22,7 +22,7 @@ public class Projectiles : MonoBehaviour
     void Update()
     {
 
-        rb.velocity = new Vector2(sepatuSpeed * transform.localScale.x, 0);
+        rb.velocity = new Vector2(sepatuSpeed * transform.localScale.x + 4, 0);
     }
 
     void OnTriggerEnter2D(Collider2D col)
