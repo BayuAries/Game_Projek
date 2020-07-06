@@ -50,7 +50,8 @@ public class Gangsta3 : MonoBehaviour
             currentTarget.x = player.position.x;
             Chasing = true;
             isHit = false;
-            anim.SetTrigger("Hit");
+            anim.SetTrigger("Chasing");
+            
         }
         if (distance < 2.5f && distance > 2.5f)
         {
