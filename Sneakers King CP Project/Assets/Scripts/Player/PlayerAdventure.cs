@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayerAdventure : MonoBehaviour
 {
     //handle rigidbody
@@ -12,7 +12,7 @@ public class PlayerAdventure : MonoBehaviour
     [SerializeField]
     private float _jumpforce = 5.0f;
     [SerializeField]
-    private LayerMask _groundlayer;
+    
     private bool resetJumpNeeded = false;
     [SerializeField]
     private float _speed = 2.5f;
@@ -20,12 +20,15 @@ public class PlayerAdventure : MonoBehaviour
     private Animator anim;
     private SpriteRenderer _playersprite;
 
+    public HealthBar healthBar;
+
     // Start is called before the first frame update
     void Start()
     {
         _rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         _playersprite = GetComponentInChildren<SpriteRenderer>();
+        healthBar.SetMaxHealth(_health);
     }
 
     // Update is called once per frame
@@ -38,7 +41,7 @@ public class PlayerAdventure : MonoBehaviour
         {
             anim.SetTrigger("punch");
         }
-
+        Bar();
     }
     public void Movement()
     {
@@ -107,8 +110,11 @@ public class PlayerAdventure : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         resetJumpNeeded = false;
     }
+    void Bar()
+    {
+        healthBar.SetHealth(_health);
+    }
 
-  
 
 }
 
