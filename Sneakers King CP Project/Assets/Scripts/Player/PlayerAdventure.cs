@@ -19,9 +19,10 @@ public class PlayerAdventure : MonoBehaviour
     public KeyCode LeftShift;
     private Animator anim;
     private SpriteRenderer _playersprite;
-
+    public KeyCode energyShoot;
     public HealthBar healthBar;
-
+    public Transform ShootPoint;
+    public GameObject projectiles;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +43,15 @@ public class PlayerAdventure : MonoBehaviour
             anim.SetTrigger("punch");
         }
         Bar();
+        if (Input.GetKeyDown(energyShoot))
+        {
+            //melempar clone sepatu dan arah lempar
+            GameObject cloneSepatu = (GameObject)Instantiate(projectiles, ShootPoint.position, ShootPoint.rotation);
+            cloneSepatu.transform.localScale = transform.localScale;
+
+            //animasi melempar (attack)
+            anim.SetTrigger("punch");
+        }
     }
     public void Movement()
     {
