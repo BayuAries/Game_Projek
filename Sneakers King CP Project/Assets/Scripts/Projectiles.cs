@@ -21,8 +21,8 @@ public class Projectiles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        rb.velocity = new Vector2(sepatuSpeed * rb.velocity.x, 0);
+
+        rb.velocity = new Vector2(sepatuSpeed * transform.localScale.x, 0);
     }
 
     void OnTriggerEnter2D(Collider2D col)

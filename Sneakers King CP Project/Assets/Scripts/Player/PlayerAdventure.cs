@@ -54,6 +54,7 @@ public class PlayerAdventure : MonoBehaviour
             //animasi melempar (attack)
             anim.SetTrigger("punch");
         }
+
     }
     public void Movement()
     {
