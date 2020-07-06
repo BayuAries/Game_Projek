@@ -14,6 +14,7 @@ TagManager:
   - PointA
   - PointB
   - Ground
+  - Attack
   layers:
   - Default
   - TransparentFX
@@ -24,6 +25,7 @@ TagManager:
   - 
   - 
   - Player
+  - Enemy
   - 
   - 
   - 
@@ -31,9 +33,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - enemy attack
+  - atack
   - efek
   - 
   - 

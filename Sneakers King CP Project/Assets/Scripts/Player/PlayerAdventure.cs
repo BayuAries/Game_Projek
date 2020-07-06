@@ -6,7 +6,8 @@ public class PlayerAdventure : MonoBehaviour
 {
     //handle rigidbody
     private Rigidbody2D _rigid;
-
+    [SerializeField]
+    private int _health = 50;
     public bool _grounded = false;
     [SerializeField]
     private float _jumpforce = 5.0f;
@@ -15,7 +16,7 @@ public class PlayerAdventure : MonoBehaviour
     private bool resetJumpNeeded = false;
     [SerializeField]
     private float _speed = 2.5f;
-
+    public KeyCode LeftShift;
     private Animator anim;
     private SpriteRenderer _playersprite;
 
@@ -35,7 +36,7 @@ public class PlayerAdventure : MonoBehaviour
         //if lefklik atak
         if (Input.GetMouseButtonDown(0) && _grounded == true)
         {
-            
+            anim.SetTrigger("punch");
         }
 
     }
@@ -44,7 +45,10 @@ public class PlayerAdventure : MonoBehaviour
 
         //horizontal input
         float move = Input.GetAxisRaw("Horizontal");
-
+        if (Input.GetKey(LeftShift))       //lari dengan shift
+        { _speed = 6f; }
+        else
+        { _speed = 2.5f; }
         if (move > 0)
         {
             _playersprite.flipX = true;
@@ -74,57 +78,37 @@ public class PlayerAdventure : MonoBehaviour
         {
             anim.SetBool("isRunning", false);
         }
-
+        
 
     }
-
-    //bool IsGrounded()
-    //{
-    //    RaycastHit2D hitinfo = Physics2D.Raycast(transform.position, Vector2.down, 0.8f, _groundlayer.value);
-    //    Debug.DrawRay(transform.position, Vector2.down * 0.8f, Color.green);
-
-    //    if (hitinfo.collider != null)
-    //    {
-
-    //        if (resetJumpNeeded == false)
-    //        {
-    //            _playeranim.Jump(false);
-    //            return true;
-    //        }
-
-
-    //    }
-    //}
-
-
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")
         {
-            _grounded = true;
-            //Debug.Log("grounded");     
+            _grounded = true;       
         }
 
+        if(collision.gameObject.tag == "Enemy")
+        {
+            _health -= 2;
+            Debug.Log(_health);
+            _rigid.velocity = new Vector2(_rigid.velocity.x + 3, _rigid.velocity.y + 3f);
+        }
     }
-
     public void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")
         {
             _grounded = false;
-            //Debug.Log("groundednot");
-
         }
-
     }
-
     IEnumerator ResetJumpNeededRoutine()
     {
         yield return new WaitForSeconds(0.1f);
         resetJumpNeeded = false;
     }
 
-
+  
 
 }
 
