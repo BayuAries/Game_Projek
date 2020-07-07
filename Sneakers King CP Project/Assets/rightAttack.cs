@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attack : MonoBehaviour
+public class rightAttack : MonoBehaviour
 {
     public int damage;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        BossHealth enemy = other.GetComponent<BossHealth>();
+        PlayerAdventure enemy = other.GetComponent<PlayerAdventure>();
 		if (enemy != null)
 		{
 			enemy.TakeDamage(damage);

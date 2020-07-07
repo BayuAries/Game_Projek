@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectiles : MonoBehaviour
 {
     public float sepatuSpeed;
-    //public int damage;
+    public int damage;
     Rigidbody2D rb;
     public GameObject sepatuEffect;
     Transform projt;
@@ -27,9 +27,15 @@ public class Projectiles : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        
+
+        //boss 1
+        BossHealth enemy = col.GetComponent<BossHealth>();
+		if (enemy != null)
+		{
+			enemy.TakeDamage(damage);
+		}
+
         Instantiate(sepatuEffect, rb.velocity, transform.rotation);
-        Debug.Log(col.name);
         
         Destroy(gameObject);
     }

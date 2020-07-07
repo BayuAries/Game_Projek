@@ -11,6 +11,7 @@ public class Boss_walk : StateMachineBehaviour
     public float speed = 1f;
     public float attackRange = 0.01f;
     bool boss1;
+    Boss1 bosss1;
     
 
 
@@ -22,13 +23,13 @@ public class Boss_walk : StateMachineBehaviour
         Bossrotation = GameObject.FindWithTag("Boss1").GetComponent<Transform>();
         boss1 = GameObject.FindWithTag("Boss1").GetComponent<SpriteRenderer>();
         //animator.GetComponent<Rigidbody2D>();
-        //boss1 = animator.GetComponent<Boss1>();
+        bosss1 = animator.GetComponent<Boss1>();
     }
 
     //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        //boss1.LookAtPlayer();
+        bosss1.LookAtPlayer();
 
 
         Vector2 target = new Vector2(player.position.x, rb.position.y);

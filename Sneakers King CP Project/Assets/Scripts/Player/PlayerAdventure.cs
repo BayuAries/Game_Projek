@@ -7,7 +7,7 @@ public class PlayerAdventure : MonoBehaviour
     //handle rigidbody
     private Rigidbody2D _rigid;
     [SerializeField]
-    private int _health = 50;
+    public int _health = 50;
     private float _energy = 100;
     public bool _grounded = false;
     [SerializeField]
@@ -152,5 +152,51 @@ public class PlayerAdventure : MonoBehaviour
     }
 
 
+    public void TakeDamage(int damage)
+	{
+		_health -= damage;
+
+		StartCoroutine(DamageAnimation());
+
+        Debug.Log(_health);
+
+		if (_health <= 0)
+		{
+			Die();
+		}
+	}
+
+    void Die()
+	{
+		Destroy(gameObject);
+	}
+
+
+
+	IEnumerator DamageAnimation()
+	{
+		SpriteRenderer[] srs = GetComponentsInChildren<SpriteRenderer>();
+
+		for (int i = 0; i < 3; i++)
+		{
+			foreach (SpriteRenderer sr in srs)
+			{
+				Color c = sr.color;
+				c.a = 0;
+				sr.color = c;
+			}
+
+			yield return new WaitForSeconds(.1f);
+
+			foreach (SpriteRenderer sr in srs)
+			{
+				Color c = sr.color;
+				c.a = 1;
+				sr.color = c;
+			}
+
+			yield return new WaitForSeconds(.1f);
+		}
+	}
 }
 

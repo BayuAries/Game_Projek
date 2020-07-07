@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 692064c0584de2342a219856f1fb53de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sepatuSpeed: 2
+  sepatuSpeed: 3
+  damage: 10
   sepatuEffect: {fileID: 5145518725232680817, guid: 7e1a493cec97c9748a77a61c0534f044,
     type: 3}

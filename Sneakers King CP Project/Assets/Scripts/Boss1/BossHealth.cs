@@ -19,6 +19,7 @@ public class BossHealth : MonoBehaviour
 			return;
 
 		health -= damage;
+		StartCoroutine(DamageAnimation());
 
 		Debug.Log(health);
 
@@ -42,6 +43,33 @@ public class BossHealth : MonoBehaviour
 		Instantiate(deathEffect, transform.position, Quaternion.identity);
 		Destroy(gameObject);
 		FindObjectOfType<NextLevel>().nextLevel();
+	}
+
+
+	IEnumerator DamageAnimation()
+	{
+		SpriteRenderer[] srs = GetComponentsInChildren<SpriteRenderer>();
+
+		for (int i = 0; i < 3; i++)
+		{
+			foreach (SpriteRenderer sr in srs)
+			{
+				Color c = sr.color;
+				c.a = 0;
+				sr.color = c;
+			}
+
+			yield return new WaitForSeconds(.1f);
+
+			foreach (SpriteRenderer sr in srs)
+			{
+				Color c = sr.color;
+				c.a = 1;
+				sr.color = c;
+			}
+
+			yield return new WaitForSeconds(.1f);
+		}
 	}
 
 }
