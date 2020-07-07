@@ -122,7 +122,7 @@ public class PlayerAdventure : MonoBehaviour
             _grounded = true;       
         }
 
-        if(collision.gameObject.tag == "Enemy")
+        if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Boss1")
         {
             _health -= 2;
             Debug.Log(_health);
