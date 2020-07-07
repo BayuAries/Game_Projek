@@ -8,6 +8,7 @@ public class PlayerAdventure : MonoBehaviour
     private Rigidbody2D _rigid;
     [SerializeField]
     private int _health = 50;
+    private float _energy = 100;
     public bool _grounded = false;
     [SerializeField]
     private float _jumpforce = 5.0f;
@@ -24,6 +25,9 @@ public class PlayerAdventure : MonoBehaviour
     public KeyCode punch;
 
     public HealthBar healthBar;
+    public EnergyBar energyBar;
+    public float regeneration = 1;
+
     public Transform ShootPoint;
     public GameObject projectiles;
     Animator camAnim;
@@ -35,6 +39,7 @@ public class PlayerAdventure : MonoBehaviour
         _playersprite = GetComponentInChildren<SpriteRenderer>();
         healthBar.SetMaxHealth(_health);
         camAnim = GameObject.FindWithTag("MainCamera").GetComponent<Animator>();
+        energyBar.SetMaxHealth(_energy);
     }
 
     // Update is called once per frame
@@ -48,16 +53,26 @@ public class PlayerAdventure : MonoBehaviour
             anim.SetTrigger("punch");
         }
         Bar();
-        if (Input.GetKeyDown(energyShoot))
+        EnergyBar();
+        
+        if (_energy < 100)
         {
-            //melempar clone sepatu dan arah lempar
-            GameObject cloneSepatu = (GameObject)Instantiate(projectiles, ShootPoint.position, ShootPoint.rotation);
-            cloneSepatu.transform.localScale = transform.localScale;
-
-            //animasi melempar (attack)
-            anim.SetTrigger("punch");
+            _energy += regeneration * Time.deltaTime; ;
         }
+            
+        if (_energy > 0)
+        {
+            if (Input.GetKeyDown(energyShoot))
+            {
+                //melempar clone sepatu dan arah lempar
+                GameObject cloneSepatu = (GameObject)Instantiate(projectiles, ShootPoint.position, ShootPoint.rotation);
+                cloneSepatu.transform.localScale = transform.localScale;
 
+                //animasi melempar (attack)
+                anim.SetTrigger("punch");
+                _energy -= 5;
+            }
+        }
     }
     public void Movement()
     {
@@ -111,7 +126,7 @@ public class PlayerAdventure : MonoBehaviour
         {
             _health -= 2;
             Debug.Log(_health);
-            _rigid.velocity = new Vector2(_rigid.velocity.x + 3, _rigid.velocity.y + 3f);
+            _rigid.velocity = new Vector2(_rigid.velocity.x + -3, _rigid.velocity.y + 1f);
             camAnim.SetTrigger("Shake");
         }
     }
@@ -124,12 +139,16 @@ public class PlayerAdventure : MonoBehaviour
     }
     IEnumerator ResetJumpNeededRoutine()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1.5f);
         resetJumpNeeded = false;
     }
     void Bar()
     {
         healthBar.SetHealth(_health);
+    }
+    void EnergyBar()
+    {
+        energyBar.SetHealth(_energy);
     }
 
 
