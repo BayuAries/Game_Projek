@@ -9455,9 +9455,10 @@ MonoBehaviour:
   _grounded: 0
   _jumpforce: 7
   resetJumpNeeded: 0
-  _speed: 2.5
+  _speed: 5
   LeftShift: 304
   energyShoot: 324
+  punch: 323
   healthBar: {fileID: 836791576}
   ShootPoint: {fileID: 1201329681}
   projectiles: {fileID: 819132659665896822, guid: 9a4f447a05054ee40b755d822f17db60,
