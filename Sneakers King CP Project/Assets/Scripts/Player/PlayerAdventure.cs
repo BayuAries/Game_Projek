@@ -122,11 +122,13 @@ public class PlayerAdventure : MonoBehaviour
             _grounded = true;       
         }
 
-        if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Boss1")
+        if(collision.gameObject.tag == "Enemy" )
         {
+
             _health -= 2;
             Debug.Log(_health);
             _rigid.velocity = new Vector2(_rigid.velocity.x + -3, _rigid.velocity.y + 1f);
+          	StartCoroutine(DamageAnimation());  
             camAnim.SetTrigger("Shake");
         }
     }
