@@ -4795,6 +4795,8 @@ PlayableDirector:
     value: {fileID: 154314416}
   - key: {fileID: -6580855754577683597, guid: 50c5bcabc77d7c74a835fdf1a5e1b50d, type: 2}
     value: {fileID: 1274258465}
+  - key: {fileID: 4898113339101126388, guid: 50c5bcabc77d7c74a835fdf1a5e1b50d, type: 2}
+    value: {fileID: 1274258465}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &668634019
@@ -6620,6 +6622,7 @@ GameObject:
   - component: {fileID: 1274258463}
   - component: {fileID: 1274258462}
   - component: {fileID: 1274258461}
+  - component: {fileID: 1274258468}
   m_Layer: 8
   m_Name: Pleyer
   m_TagString: Player
@@ -6761,7 +6764,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b31730aa585938e4b8e8e3a69ff5ef56, type: 3}
-  m_Color: {r: 0.8862746, g: 0.16470589, b: 0.227451, a: 1}
+  m_Color: {r: 0.83637416, g: 0.91842943, b: 0.990566, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -6779,7 +6782,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1274258460}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.11, y: -2.62, z: 0}
+  m_LocalPosition: {x: -5.63, y: -2.47, z: 0}
   m_LocalScale: {x: 2.25, y: 2.25, z: 1}
   m_Children:
   - {fileID: 427593777}
@@ -6789,6 +6792,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1274258468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274258460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80a72cfbae757c45a22dcbe9891c89c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1283695474
 GameObject:
   m_ObjectHideFlags: 0
