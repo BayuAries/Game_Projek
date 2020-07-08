@@ -65,12 +65,12 @@ public class PlayerAdventure : MonoBehaviour
                 //melempar clone sepatu dan arah lempar
                 GameObject cloneSepatu = (GameObject)Instantiate(projectiles, ShootPoint.position, ShootPoint.rotation);
                 cloneSepatu.transform.localScale = transform.localScale;
+                _energy -= 5;  //kurangi energy - pindah ke atas
 
                 //animasi melempar (attack)
                 anim.SetTrigger("punch");
                 FindObjectOfType<AudioManager>().Play("Shoot");
-                _energy -= 5;
-
+                
             }
         }
         if (_energy < 100)
