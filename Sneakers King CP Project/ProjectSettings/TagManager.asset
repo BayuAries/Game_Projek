@@ -15,6 +15,7 @@ TagManager:
   - PointB
   - Ground
   - Attack
+  - ShootPoint
   layers:
   - Default
   - TransparentFX

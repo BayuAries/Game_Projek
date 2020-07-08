@@ -42,7 +42,14 @@ public class Projectiles : MonoBehaviour
 		}
 
         Instantiate(sepatuEffect, rb.velocity, transform.rotation);
+        if (col.CompareTag("Player") || col.CompareTag("Attack")) 
+        {
+            return;
+        }
+        else
+        {
+            Destroy(gameObject);
+        } 
         
-        Destroy(gameObject);
     }
 }

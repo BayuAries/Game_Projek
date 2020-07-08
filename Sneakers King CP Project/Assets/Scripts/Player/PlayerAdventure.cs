@@ -40,6 +40,8 @@ public class PlayerAdventure : MonoBehaviour
         healthBar.SetMaxHealth(_health);
         camAnim = GameObject.FindWithTag("MainCamera").GetComponent<Animator>();
         energyBar.SetMaxHealth(_energy);
+        ShootPoint = GameObject.FindWithTag("ShootPoint").GetComponent<Transform>();
+        
     }
 
     // Update is called once per frame
@@ -68,6 +70,7 @@ public class PlayerAdventure : MonoBehaviour
                 anim.SetTrigger("punch");
                 FindObjectOfType<AudioManager>().Play("Shoot");
                 _energy -= 5;
+
             }
         }
         if (_energy < 100)
@@ -87,10 +90,12 @@ public class PlayerAdventure : MonoBehaviour
         if (move > 0)
         {
             _playersprite.flipX = true;
+            ShootPoint.localPosition = new Vector2(0.45f, ShootPoint.localPosition.y);
         }
         else if (move < 0)
         {
             _playersprite.flipX = false;
+            ShootPoint.localPosition = new Vector2(-0.45f, ShootPoint.localPosition.y);
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && _grounded == true)
