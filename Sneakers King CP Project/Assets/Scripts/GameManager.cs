@@ -35,10 +35,11 @@ public class GameManager : MonoBehaviour
 
     public void MainMenu()
     {
-        //Application.LoadLevel(0);
+        Application.LoadLevel(0);
         Time.timeScale = 1;
+        //StartCoroutine(LoadLevel(0));
         panelPause.SetActive(false);
-        StartCoroutine(LoadLevel(0));
+        
     }
 
     public void Win1()
