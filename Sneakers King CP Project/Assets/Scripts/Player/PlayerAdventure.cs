@@ -148,7 +148,7 @@ public class PlayerAdventure : MonoBehaviour
         if(collision.gameObject.tag == "Boss2" )
         {
 
-            _health -= 20;
+            _health -= 15;
             Debug.Log(_health);
             _rigid.velocity = new Vector2(_rigid.velocity.x + -3, _rigid.velocity.y + 1f);
           	StartCoroutine(DamageAnimation());  
