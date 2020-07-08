@@ -3115,7 +3115,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'RedGang
+  m_Text: 'BigRedGang
 
     Look man, if you lookin for a problem...'
 --- !u!222 &883224025
@@ -4714,7 +4714,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'RedGang
+  m_Text: 'BigRedGang
 
     I wont let you come through'
 --- !u!222 &1064433092
@@ -7138,7 +7138,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'RedGang
+  m_Text: 'BigRedGang
 
     You lookin for a problem at a wrong neighborhood fool'
 --- !u!222 &1685797091

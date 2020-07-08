@@ -15,7 +15,7 @@ public class Projectiles : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         projt = GetComponent<Transform>();
-        transform.localScale = new Vector3(0.1f, 0.1f, 0);
+        transform.localScale = new Vector3(0.2f, 0.2f, 0);
     }
 
     // Update is called once per frame
