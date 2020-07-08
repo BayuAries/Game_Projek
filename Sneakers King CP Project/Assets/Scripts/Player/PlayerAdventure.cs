@@ -66,6 +66,7 @@ public class PlayerAdventure : MonoBehaviour
 
                 //animasi melempar (attack)
                 anim.SetTrigger("punch");
+                FindObjectOfType<AudioManager>().Play("Shoot");
                 _energy -= 5;
             }
         }
