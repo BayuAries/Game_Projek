@@ -653,7 +653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 200
   _grounded: 1
-  _jumpforce: 7
+  _jumpforce: 7.3
   resetJumpNeeded: 0
   _speed: 5
   LeftShift: 304
@@ -695,7 +695,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 182412061}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: acd0dfb071a5efb49a9223d0a58d1475, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -7489,7 +7489,7 @@ GameObject:
   - component: {fileID: 870463421}
   m_Layer: 0
   m_Name: ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
