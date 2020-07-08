@@ -55,10 +55,6 @@ public class PlayerAdventure : MonoBehaviour
         Bar();
         EnergyBar();
         
-        if (_energy < 100)
-        {
-            _energy += regeneration * Time.deltaTime; ;
-        }
             
         if (_energy > 0)
         {
@@ -72,6 +68,10 @@ public class PlayerAdventure : MonoBehaviour
                 anim.SetTrigger("punch");
                 _energy -= 5;
             }
+        }
+        if (_energy < 100)
+        {
+            _energy += regeneration * Time.deltaTime; ;
         }
     }
     public void Movement()

@@ -150,12 +150,12 @@ public class P2 : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if ((col.tag == "Enemy") || (col.tag == "sepatu"))
+        if (col.tag == "sepatu")
         {
             currentHealth -= 1;
         }
 
-        if (((col.tag == "Enemy") || (col.tag == "sepatu")) && currentHealth > 0)
+        if (col.tag == "sepatu" && currentHealth > 0)
         {
             anim.SetTrigger("isHurt");
             StartCoroutine("Hurt");

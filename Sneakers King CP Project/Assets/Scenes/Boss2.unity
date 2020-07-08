@@ -2865,6 +2865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49d392d66ebd8845934374f9dcf9c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   slider: {fileID: 545394045}
   gradient:
     serializedVersion: 2
@@ -3227,6 +3228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 062b1479715e2b5439e0c60ba3d2477b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0
 --- !u!50 &669664112
 Rigidbody2D:
   serializedVersion: 4
@@ -3653,7 +3655,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.06666851, y: -1.0533333}
+  m_AnchoredPosition: {x: 0.11, y: 0.62}
   m_SizeDelta: {x: 93.87, y: 41.366}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &949784348
@@ -4692,7 +4694,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1314137272
 Transform:
   m_ObjectHideFlags: 0
@@ -5712,6 +5714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49d392d66ebd8845934374f9dcf9c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   slider: {fileID: 1995830522}
   gradient:
     serializedVersion: 2

@@ -26,7 +26,7 @@ public class P1 : MonoBehaviour
     public GameObject sepatu;
     public Transform atackPoint;
 
-    public HealthBar healthBar;
+    public HealthBarP1 healthBar;
 
 
     // Start is called before the first frame update
@@ -152,12 +152,12 @@ public class P1 : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.name.Equals("baja") || (col.tag == "sepatu"))
+        if (col.tag == "sepatu")
         {
             currentHealth -= 1;
         }
 
-        if ((col.gameObject.name.Equals("baja") || (col.tag == "sepatu")) && currentHealth > 0)
+        if (col.tag == "sepatu" && currentHealth > 0)
         {
             anim.SetTrigger("isHurt");
             StartCoroutine("Hurt");
