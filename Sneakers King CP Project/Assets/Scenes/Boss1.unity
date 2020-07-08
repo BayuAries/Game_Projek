@@ -8139,7 +8139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 200
   _grounded: 1
-  _jumpforce: 7
+  _jumpforce: 7.3
   resetJumpNeeded: 0
   _speed: 5
   LeftShift: 304
@@ -8181,7 +8181,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 2091234056}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: acd0dfb071a5efb49a9223d0a58d1475, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
