@@ -1279,7 +1279,7 @@ MonoBehaviour:
   p1win: {fileID: 0}
   p2win: {fileID: 0}
   deads: {fileID: 588012613}
-  transition: {fileID: 0}
+  transition: {fileID: 1229602337}
   transitionTime: 1
 --- !u!4 &357427015
 Transform:

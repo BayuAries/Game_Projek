@@ -2887,8 +2887,8 @@ Canvas:
   m_GameObject: {fileID: 907759253}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 777774228}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -6408,7 +6408,7 @@ MonoBehaviour:
   p1win: {fileID: 0}
   p2win: {fileID: 0}
   deads: {fileID: 42139919}
-  transition: {fileID: 0}
+  transition: {fileID: 713573095}
   transitionTime: 1
 --- !u!4 &1630912993
 Transform:

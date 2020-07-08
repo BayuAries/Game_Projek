@@ -36,9 +36,9 @@ public class GameManager : MonoBehaviour
 
     public void MainMenu()
     {
-        Application.LoadLevel(0);
+        //Application.LoadLevel(0);
+        StartCoroutine(Loadlevel(0));
         Time.timeScale = 1;
-        //StartCoroutine(LoadLevel(0));
         panelPause.SetActive(false);
         
     }
@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         deads.SetActive(true);
     }
 
-    IEnumerator LoadLevel(int LevelIndex)
+    IEnumerator Loadlevel(int LevelIndex)
     {
         transition.SetTrigger("Start");
 
