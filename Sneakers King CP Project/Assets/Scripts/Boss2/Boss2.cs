@@ -28,12 +28,12 @@ public class Boss2 : MonoBehaviour
             //anim.SetTrigger("stageTwo");
         }
 
-        if (health <= 0)
-        {
-            //anim.SetTrigger("death");
-        }
-        //slider.value = health;
-    }
+		if (health <= 0)
+		{
+			Die();
+		}
+		//slider.value = health;
+	}
 
 
     public void TakeDamage(int damage)
@@ -47,17 +47,14 @@ public class Boss2 : MonoBehaviour
 
         }
 
-		if (health <= 0)
-		{
-			Die();
-		}
+		
 	}
 
 	void Die()
 	{
-		Instantiate(deathEffect, transform.position, Quaternion.identity);
+		//Instantiate(deathEffect, transform.position, Quaternion.identity);
 		Destroy(gameObject);
-		FindObjectOfType<NextLevel>().nextLevel();
+		//FindObjectOfType<NextLevel>().nextLevel();
 	}
 
 
