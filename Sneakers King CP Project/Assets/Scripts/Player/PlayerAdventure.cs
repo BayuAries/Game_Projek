@@ -126,11 +126,27 @@ public class PlayerAdventure : MonoBehaviour
         if(collision.gameObject.tag == "Enemy" )
         {
 
-            _health -= 2;
+            _health -= 5;
             Debug.Log(_health);
             _rigid.velocity = new Vector2(_rigid.velocity.x + -3, _rigid.velocity.y + 1f);
           	StartCoroutine(DamageAnimation());  
             camAnim.SetTrigger("Shake");
+        }
+
+        if(collision.gameObject.tag == "Boss2" )
+        {
+
+            _health -= 20;
+            Debug.Log(_health);
+            _rigid.velocity = new Vector2(_rigid.velocity.x + -3, _rigid.velocity.y + 1f);
+          	StartCoroutine(DamageAnimation());  
+            camAnim.SetTrigger("Shake");
+
+            if(_health<=0){
+                
+                Die();
+
+            }
         }
     }
     public void OnCollisionExit2D(Collision2D collision)

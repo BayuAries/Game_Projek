@@ -14,6 +14,12 @@ public class Attack : MonoBehaviour
 			enemy.TakeDamage(damage);
 		}
 
+        Boss2 enemy2 = other.GetComponent<Boss2>();
+		if (enemy != null)
+		{
+			enemy2.TakeDamage(damage);
+		}
+
         Debug.Log("hit " + other.name);
 
     }

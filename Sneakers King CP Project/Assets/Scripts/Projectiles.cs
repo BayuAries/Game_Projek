@@ -35,6 +35,12 @@ public class Projectiles : MonoBehaviour
 			enemy.TakeDamage(damage);
 		}
 
+        Boss2 enemy2 = col.GetComponent<Boss2>();
+		if (enemy2 != null)
+		{
+			enemy2.TakeDamage(damage);
+		}
+
         Instantiate(sepatuEffect, rb.velocity, transform.rotation);
         
         Destroy(gameObject);
