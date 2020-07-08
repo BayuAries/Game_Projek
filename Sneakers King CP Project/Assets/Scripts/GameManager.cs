@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public GameObject panelPause;
     public GameObject p1win;
     public GameObject p2win;
+    public GameObject deads;
     public Animator transition;
     public float transitionTime = 1f;
 
@@ -50,6 +51,11 @@ public class GameManager : MonoBehaviour
     public void Win2()
     {
         p2win.SetActive(true);
+    }
+
+    public void dead()
+    {
+        deads.SetActive(true);
     }
 
     IEnumerator LoadLevel(int LevelIndex)

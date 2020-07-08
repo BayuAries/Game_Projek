@@ -77,6 +77,13 @@ public class PlayerAdventure : MonoBehaviour
         {
             _energy += regeneration * Time.deltaTime; ;
         }
+
+        if (_health <= 0)
+        {
+
+            Die();
+
+        }
     }
     public void Movement()
     {
@@ -150,7 +157,6 @@ public class PlayerAdventure : MonoBehaviour
             if(_health<=0){
                 
                 Die();
-
             }
         }
     }
@@ -193,7 +199,8 @@ public class PlayerAdventure : MonoBehaviour
     void Die()
 	{
 		Destroy(gameObject);
-	}
+        FindObjectOfType<GameManager>().dead();
+    }
 
 
 
