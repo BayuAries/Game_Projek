@@ -23,6 +23,11 @@ public class NextLevel : MonoBehaviour
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
+    public void EndGame()
+    {
+        StartCoroutine(LoadLevel(0));
+    }
+
     IEnumerator LoadLevel(int LevelIndex)
     {
         transition.SetTrigger("Start");

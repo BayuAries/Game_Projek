@@ -31,6 +31,7 @@ public class Boss2 : MonoBehaviour
 		if (health <= 0)
 		{
 			Die();
+
 		}
 		//slider.value = health;
 	}
@@ -54,7 +55,7 @@ public class Boss2 : MonoBehaviour
 	{
 		//Instantiate(deathEffect, transform.position, Quaternion.identity);
 		Destroy(gameObject);
-		//FindObjectOfType<NextLevel>().nextLevel();
+		FindObjectOfType<NextLevel>().nextLevel();
 	}
 
 
