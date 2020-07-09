@@ -102,5 +102,14 @@ public class Boss2 : MonoBehaviour
                 //other.GetComponent<PlayerAdventure>().health -= damage;
             }
         }
-    }
+		else if (other.CompareTag("Attack"))
+		{
+			if (timeBtwDamage <= 0)
+			{
+				health -= damage;
+				camAnim.SetTrigger("shake");
+				//other.GetComponent<PlayerAdventure>().health -= damage;
+			}
+		}
+	}
 }
