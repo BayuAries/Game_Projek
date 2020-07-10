@@ -404,7 +404,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 2, y: -41}
+  m_AnchoredPosition: {x: 0, y: -51}
   m_SizeDelta: {x: 45.4, y: 37.28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &48850044
@@ -531,7 +531,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 124, y: -21.5}
+  m_AnchoredPosition: {x: 122, y: -35}
   m_SizeDelta: {x: 160, y: 26.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &86505975
@@ -3457,7 +3457,7 @@ MonoBehaviour:
   rightbutton: 275
   jump: 273
   LeftShift: 303
-  trowShoes: 307
+  trowShoes: 305
   sepatu: {fileID: 8877994487818067595, guid: 6dd0032bc5bfe234b88142ab781bc3f3, type: 3}
   atackPoint: {fileID: 1616522536}
   healthBar2: {fileID: 1118430369}
@@ -4781,7 +4781,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -30, y: -21.5}
+  m_AnchoredPosition: {x: -44, y: -38}
   m_SizeDelta: {x: 160, y: 26.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1377226562
